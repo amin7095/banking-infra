@@ -1,6 +1,9 @@
 
 # Key pair
-resource "aws_key_pair" "this" { key_name = "${var.name}-kp" public_key = var.ssh_public_key }
+resource "aws_key_pair" "this" {
+  key_name   = "${var.name}-kp"
+  public_key = var.ssh_public_key
+}
 
 # AMI lookup (Amazon Linux 2023)
 data "aws_ami" "al2023" {
