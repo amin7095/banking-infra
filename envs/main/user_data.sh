@@ -20,13 +20,20 @@ APP_DIR=/opt/banking
 mkdir -p "$APP_DIR" && cd "$APP_DIR"
 
 # <<< These values are templated by Terraform via templatefile(...) >>>
+# <<< These values are templated by Terraform via templatefile(...) >>>
 APP_REPO="${app_repo}"
 PAYMENT_MODE="${payment_mode}"
 ENV_NAME="${env_name}"
-DD_KEY="${datadog_api_key}"
+
+# Datadog
+DD_API_KEY="${datadog_api_key}"
 DD_SITE="${datadog_site}"
+
+# Gremlin
 GREM_TEAM_ID="${gremlin_team_id}"
 GREM_SECRET="${gremlin_secret}"
+
+# Database
 DB_HOST="${db_host}"
 DB_USER="${db_username}"
 DB_PASS="${db_password}"
