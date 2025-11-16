@@ -79,7 +79,7 @@ fi
 # 3) Datadog Agent v7 (EU site)
 # -----------------------------
 # Recommended flags: enable remote updates; tag host with env
-DD_API_KEY="${DD_KEY}" \
+DD_API_KEY="${DD_API_KEY}" \
 DD_SITE="${DD_SITE}" \
 DD_REMOTE_UPDATES=true \
 DD_ENV="${ENV_NAME}" \
