@@ -19,21 +19,29 @@ resource "aws_security_group" "wiremock" {
   }
 }
 
+
 data "aws_ami" "al2023" {
-  owners = ["137112412989"]
+  owners      = ["137112412989"]
   most_recent = true
-  filter { name = "name" values = ["al2023-ami-*-kernel-*-x86_64"] }
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-kernel-*-x86_64"]
+  }
 }
 
+
+
 locals {
-  mapping_write = join("
-", [for k,v in var.mappings : <<EOT
+  mapping_write = join("\n", [
+    for k, v in var.mappings : <<-EOT
 cat > /home/wiremock/mappings/${k} <<'JSON'
 ${v}
 JSON
 EOT
   ])
 }
+
 
 resource "aws_instance" "wiremock" {
   ami                    = data.aws_ami.al2023.id

@@ -7,9 +7,13 @@ resource "aws_key_pair" "this" {
 
 # AMI lookup (Amazon Linux 2023)
 data "aws_ami" "al2023" {
-  owners = ["137112412989"]
+  owners      = ["137112412989"]
   most_recent = true
-  filter { name = "name" values = ["al2023-ami-*-kernel-*-x86_64"] }
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-kernel-*-x86_64"]
+  }
 }
 
 # App SG (no direct ingress; Alb->App rule created separately)

@@ -31,7 +31,10 @@ resource "aws_lb_target_group" "app" {
   port     = 8080
   protocol = "HTTP"
   vpc_id   = var.vpc_id
-  health_check { path = "/" matcher = "200-499" }
+  health_check {
+  path    = "/"
+  matcher = "200-499"
+}
 }
 
 resource "aws_lb_listener" "http" {
