@@ -20,7 +20,7 @@ resource "aws_security_group" "rds" {
 # Look up a valid MySQL 8.0 engine version for this region
 data "aws_rds_engine_version" "mysql_8" {
   engine  = "mysql"
-  version = "8.0"        # major line (let AWS return the preferred minor)
+  version = "8.0.35"        # major line (let AWS return the preferred minor)
   # You can also filter by parameter group family or status if needed
 }
 
