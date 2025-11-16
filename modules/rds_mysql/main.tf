@@ -30,7 +30,6 @@ resource "aws_db_instance" "this" {
   engine                  = "mysql"
   engine_version          = data.aws_rds_engine_version.mysql_8.version_actual
   instance_class          = "db.t3.micro"
-  allocated_storage      = 20
   db_name                 = "banking"
   username                = "admin"
   password                = "changeme-override-in-tfvars" # placeholder, not used (we don't expose here)
