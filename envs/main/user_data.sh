@@ -124,7 +124,7 @@ systemctl enable --now amazon-ssm-agent || true
 ############################################
 # 7) Handy markers for quick troubleshooting
 ############################################
-echo "User data completed for ${ENV_NAME}."
+echo "User data completed for $ENV_NAME."
 echo "App log: /var/log/banking.log"
 command -v datadog-agent >/dev/null && sudo datadog-agent status || true
 systemctl status gremlind --no-pager || true
