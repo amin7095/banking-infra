@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/payments/authorize",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.card.number"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "authCode": "APPROVED",
+      "traceId": "wm-{{randomValue length=12 type='ALPHANUMERIC'}}"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

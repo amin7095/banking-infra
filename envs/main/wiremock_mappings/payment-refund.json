@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/payments/refund",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.paymentId"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "status": "REFUNDED",
+      "refundId": "rf-{{randomValue length=10 type='ALPHANUMERIC'}}"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
