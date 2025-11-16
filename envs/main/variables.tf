@@ -24,8 +24,7 @@ variable "dynamodb_table_name" {
   type = string  
   default = "test-data" }
 
-variable "ssh_public_key"      { 
-  type = string }
+variable "ssh_public_key"      { type = string }
 
 variable "datadog_api_key" {
   type      = string
