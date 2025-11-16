@@ -54,5 +54,9 @@ resource "aws_autoscaling_group" "asg" {
   }
 
   target_group_arns = [var.alb_tg_arn]
-  tag { key = "Name" value = "${var.name}-app" propagate_at_launch = true }
+  tag {
+  key                 = "Name"
+  value               = "${var.name}-app"
+  propagate_at_launch = true
+}
 }
