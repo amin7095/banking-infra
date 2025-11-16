@@ -16,11 +16,21 @@ resource "aws_security_group" "rds" {
   }
 }
 
+
+# Look up a valid MySQL 8.0 engine version for this region
+data "aws_rds_engine_version" "mysql_8" {
+  engine  = "mysql"
+  version = "8.0"        # major line (let AWS return the preferred minor)
+  # You can also filter by parameter group family or status if needed
+}
+
+
 resource "aws_db_instance" "this" {
   identifier              = "${var.name}-mysql"
   engine                  = "mysql"
-  engine_version          = var.engine_version
-  instance_class          = var.instance_class
+  engine_version          = data.aws_rds_engine_version.mysql_8.version_actual
+  instance_class          = "db.t3.micro"
+  allocated_storage      = 20
   db_name                 = "banking"
   username                = "admin"
   password                = "changeme-override-in-tfvars" # placeholder, not used (we don't expose here)
