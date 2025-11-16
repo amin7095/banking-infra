@@ -5,8 +5,7 @@ variable "instance_type" {
   type    = string
   default = "t3.medium"
 }
-variable "app_repo"            { 
-  type = string }
+variable "app_repo"            { type = string }
 variable "payment_mode" {
   type    = string
   default = "wiremock"
