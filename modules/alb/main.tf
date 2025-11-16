@@ -46,10 +46,3 @@ resource "aws_lb_listener" "http" {
   target_group_arn = aws_lb_target_group.app.arn
 }
 }
-
-health_check {
-  path    = "/health"   # change to your app's health path
-  matcher = "200-499"
-  interval = 30
-  timeout  = 5
-}
