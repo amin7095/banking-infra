@@ -1,8 +1,6 @@
 
-variable "aws_region"          { 
-  type = string }
-variable "env_name"            { 
-  type = string }
+variable "aws_region"          { type = string }
+variable "env_name"            { type = string }
 variable "instance_type" {
   type    = string
   default = "t3.medium"
