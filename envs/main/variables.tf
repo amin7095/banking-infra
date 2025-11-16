@@ -6,7 +6,10 @@ variable "instance_type" {
   default = "t3.medium"
 }
 variable "app_repo"            { type = string }
-variable "payment_mode"        { type = string  default = "wiremock" }
+variable "payment_mode" {
+  type    = string
+  default = "wiremock"
+}
 variable "db_username"         { type = string  sensitive = true }
 variable "db_password"         { type = string  sensitive = true }
 variable "dynamodb_table_name" { type = string  default = "test-data" }
